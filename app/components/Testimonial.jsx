@@ -13,7 +13,6 @@ class Testimonial extends React.Component {
         textAlign: 'center'
       },
       testimonialImg: {
-        // borderRadius: '50%',
         display: 'block',
         margin: '40px auto 20px',
         width: '250px'
