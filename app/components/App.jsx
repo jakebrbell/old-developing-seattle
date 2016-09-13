@@ -1,12 +1,9 @@
-
 import Footer from 'components/Footer';
 import MainNav from 'components/MainNav';
-import Radium from 'radium';
 import React from 'react';
 
 class App extends React.Component {
   render() {
-
 
     return <div>
       <MainNav />
@@ -16,4 +13,4 @@ class App extends React.Component {
   }
 }
 
-export default Radium(App);
+export default App;
