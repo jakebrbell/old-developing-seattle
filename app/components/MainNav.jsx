@@ -1,7 +1,12 @@
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Link, withRouter } from 'react-router';
 import React from 'react';
 
 class MainNav extends React.Component {
+  handleClick() {
+    this.props.router.push('/organizations');
+  }
+
   render() {
     const styles = {
       hamburger: {
@@ -21,13 +26,13 @@ class MainNav extends React.Component {
     return <Navbar fixedTop inverse style={styles.navbar}>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#" style={styles.logo}>Developing Seattle</a>
+          <Link to={'/'} style={styles.logo}>Developing Seattle</Link>
         </Navbar.Brand>
         <Navbar.Toggle style={styles.hamburger} />
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem eventKey={1} href="#">Organizations</NavItem>
+          <NavItem eventKey={1} onClick={this.handleClick.bind(this)}>Organizations</NavItem>
           <NavItem eventKey={2} href="#">Login</NavItem>
         </Nav>
       </Navbar.Collapse>
@@ -35,4 +40,4 @@ class MainNav extends React.Component {
   }
 }
 
-export default MainNav;
+export default withRouter(MainNav);
