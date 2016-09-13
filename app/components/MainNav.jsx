@@ -3,8 +3,12 @@ import { Link, withRouter } from 'react-router';
 import React from 'react';
 
 class MainNav extends React.Component {
-  handleClick() {
+  handleClickOrgs() {
     this.props.router.push('/organizations');
+  }
+
+  handleClickLogin() {
+    this.props.router.push('/login');
   }
 
   render() {
@@ -32,8 +36,8 @@ class MainNav extends React.Component {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem eventKey={1} onClick={this.handleClick.bind(this)}>Organizations</NavItem>
-          <NavItem eventKey={2} href="#">Login</NavItem>
+          <NavItem eventKey={1} onClick={this.handleClickOrgs.bind(this)}>Organizations</NavItem>
+          <NavItem eventKey={2} onClick={this.handleClickLogin.bind(this)}>Login</NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>;

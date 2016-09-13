@@ -43,7 +43,7 @@ class Home extends React.Component {
       }
     };
 
-    return <main>
+    return <div>
       <div style={styles.hero}>
         <h1 style={styles.mainHeader}>Developing Seattle</h1>
       </div>
@@ -69,7 +69,7 @@ class Home extends React.Component {
           })}
         </Row>
       </Grid>
-    </main>;
+    </div>;
   }
 }
 

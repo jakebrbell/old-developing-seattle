@@ -6,9 +6,9 @@ class App extends React.Component {
   render() {
     return <div>
       <MainNav />
-      <div style={{ minHeight: 'calc(100vh - 170px)' }}>
+      <main style={{ minHeight: 'calc(100vh - 170px)' }}>
         {React.cloneElement(this.props.children)}
-      </div>
+      </main>
       <Footer />
     </div>;
   }
