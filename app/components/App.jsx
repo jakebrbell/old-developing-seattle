@@ -1,6 +1,6 @@
-import { Button, Col, Grid, Nav, Navbar, NavItem, Row }
-  from 'react-bootstrap';
+import { Button, Col, Grid, Row } from 'react-bootstrap';
 import Cause from 'components/Cause';
+import MainNav from 'components/MainNav';
 import Radium from 'radium';
 import React from 'react';
 import Testimonial from 'components/Testimonial';
@@ -26,26 +26,13 @@ class App extends React.Component {
   render() {
     const styles = {
       hero: {
-        background: 'url("images/seattle-skyline.jpg") center center / cover no-repeat ',
+        background: 'url("images/seattle-skyline.jpg") center center / cover no-repeat',
         height: '500px'
       }
     };
 
     return <div>
-      <Navbar fixedTop inverse style={{ borderRadius: 0, height: '70px' }}>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#" style={{ fontSize: '26px', lineHeight: '40px', height: '70px' }}>Developing Seattle</a>
-          </Navbar.Brand>
-          <Navbar.Toggle style={{ height: '54px' }}/>
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="#">Organizations</NavItem>
-            <NavItem eventKey={2} href="#">Login</NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <MainNav />
       <div style={styles.hero}>
         <h1 style={{
           color: '#fff',
