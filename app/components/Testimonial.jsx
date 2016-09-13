@@ -4,10 +4,30 @@ import React from 'react';
 
 class Testimonial extends React.Component {
   render() {
+    const { testimonial } = this.props;
+
+    const styles = {
+      testimonial: {
+        fontSize: '18px',
+        padding: '10px 30px',
+        textAlign: 'center'
+      },
+      testimonialImg: {
+        borderRadius: '50%',
+        display: 'block',
+        margin: '40px auto 20px',
+        width: '250px'
+      },
+      testimonialName: {
+        fontSize: '18px',
+        textAlign: 'center'
+      }
+    };
+
     return <Col xs={12} md={4}>
-      <img src={`images/${this.props.testimonial.image}`} style={{ borderRadius: '50%', display: 'block', width: '250px', margin: '40px auto 20px' }} />
-      <p style={{ textAlign: 'center', padding: '10px 30px', fontSize: '18px' }}>"I was looking for a good cause to support and Developing Seattle helped pair me with a great nonprofit that is working to solve the greatest issues of our time."</p>
-      <p style={{ textAlign: 'center', fontSize: '18px' }}>~ {this.props.testimonial.name}</p>
+      <img src={`images/${testimonial.image}`} style={styles.testimonialImg} />
+      <p style={styles.testimonial}>"I was looking for a good cause to support and Developing Seattle helped pair me with a great nonprofit that is working to solve the greatest issues of our time."</p>
+      <p style={styles.testimonialName}>~ {testimonial.name}</p>
     </Col>;
   }
 }
