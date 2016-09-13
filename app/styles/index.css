@@ -1,0 +1,8 @@
+.navbar-nav > li > a {
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.navbar-inverse .navbar-collapse {
+  background-color: #222;
+}
