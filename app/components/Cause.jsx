@@ -4,7 +4,7 @@ import React from 'react';
 
 class Cause extends React.Component {
   render() {
-    const cause = this.props.cause;
+    const { cause } = this.props;
 
     const styles = {
       col: {
