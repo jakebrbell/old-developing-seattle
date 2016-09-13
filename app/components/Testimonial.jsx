@@ -1,4 +1,4 @@
-import { Col } from 'react-bootstrap';
+import { Col, Image } from 'react-bootstrap';
 import Radium from 'radium';
 import React from 'react';
 
@@ -13,7 +13,7 @@ class Testimonial extends React.Component {
         textAlign: 'center'
       },
       testimonialImg: {
-        borderRadius: '50%',
+        // borderRadius: '50%',
         display: 'block',
         margin: '40px auto 20px',
         width: '250px'
@@ -25,7 +25,11 @@ class Testimonial extends React.Component {
     };
 
     return <Col xs={12} md={4}>
-      <img src={`images/${testimonial.image}`} style={styles.testimonialImg} />
+      <Image
+        circle
+        src={`images/${testimonial.image}`}
+        style={styles.testimonialImg}
+      />
       <p style={styles.testimonial}>"I was looking for a good cause to support and Developing Seattle helped pair me with a great nonprofit that is working to solve the greatest issues of our time."</p>
       <p style={styles.testimonialName}>~ {testimonial.name}</p>
     </Col>;
