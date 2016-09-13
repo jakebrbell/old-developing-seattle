@@ -1,5 +1,6 @@
 import { Button, Col, Grid, Row } from 'react-bootstrap';
 import Cause from 'components/Cause';
+import Footer from 'components/Footer';
 import MainNav from 'components/MainNav';
 import Radium from 'radium';
 import React from 'react';
@@ -63,9 +64,7 @@ class App extends React.Component {
           })}
         </Row>
       </Grid>
-      <footer style={{ backgroundColor: '#222', height: '70px', color: '#9D9D9D', padding: '25px 70px' }}>
-        &copy; Developing Seattle 2016
-      </footer>
+      <Footer />
     </div>;
   }
 }
