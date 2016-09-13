@@ -1,6 +1,5 @@
 import { Button, Col, Grid, Row } from 'react-bootstrap';
 import Cause from 'components/Cause';
-import Radium from 'radium';
 import React from 'react';
 import Testimonial from 'components/Testimonial';
 
