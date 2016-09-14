@@ -1,7 +1,30 @@
 import { Col, ControlLabel, FormControl, FormGroup, Grid, Image, Label, Row }
   from 'react-bootstrap';
 import { Link } from 'react-router';
+import OrgProfileShort from 'components/OrgProfileShort';
 import React from 'react';
+
+const orgs = [
+  {
+    name: 'Company Name',
+    address: '1260 Republican Street, Seattle, WA 98109',
+    logo: 'https://s-media-cache-ak0.pinimg.com/564x/5a/bd/f4/5abdf4f571593356b4a27339529798d0.jpg',
+    causes: ['Animal Welfare', 'Environment'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'Company Name',
+    address: '1260 Republican Street, Seattle, WA 98109',
+    logo: 'http://www.zepfcenter.org/clientuploads/news/end-human-trafficking.jpg',
+    causes: ['Human Trafficking'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'Company Name',
+    address: '1260 Republican Street, Seattle, WA 98109',
+    logo: 'https://s-media-cache-ak0.pinimg.com/236x/a4/89/c8/a489c8a9fa06e2ae1ca1dbb5f58dcd08.jpg',
+    causes: ['Education'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+];
 
 class OrgList extends React.Component {
   render() {
@@ -35,72 +58,9 @@ class OrgList extends React.Component {
             </aside>
           </Col>
           <Col xs={12} sm={9}>
-            <Row style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '10px', padding: '30px', marginBottom: '30px' }}>
-              <Col xs={12}>
-                <Link to={'/'} style={{ color: 'black' }}>
-                  <Col xs={12} sm={3}>
-                    <Image
-                      circle
-                      src="https://s-media-cache-ak0.pinimg.com/564x/5a/bd/f4/5abdf4f571593356b4a27339529798d0.jpg"
-                      style={{ height: '200px', display: 'block', margin: '0 auto' }}
-                    />
-                  </Col>
-                  <Col xs={12} sm={9}>
-                    <h2>Company Name</h2>
-                    <p>1260 Republican Street, Seattle, WA 98109</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h3 style={{ display: 'inline', marginRight: '10px' }}>
-                      <Label style={{ backgroundColor: 'blue' }}>Environment</Label>
-                    </h3>
-                    <h3 style={{ display: 'inline', marginRight: '10px' }}>
-                      <Label style={{ backgroundColor: 'blue' }}>Animal Welfare</Label>
-                    </h3>
-                  </Col>
-                </Link>
-              </Col>
-            </Row>
-            <Row style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '10px', padding: '30px', marginBottom: '30px' }}>
-              <Col xs={12}>
-                <Link to={'/'} style={{ color: 'black' }}>
-                  <Col xs={12} sm={3}>
-                    <Image
-                      circle
-                      src="http://www.zepfcenter.org/clientuploads/news/end-human-trafficking.jpg"
-                      style={{ height: '200px', display: 'block', margin: '0 auto' }}
-                    />
-                  </Col>
-                  <Col xs={12} sm={9}>
-                    <h2>Company Name</h2>
-                    <p>1260 Republican Street, Seattle, WA 98109</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h3 style={{ display: 'inline', marginRight: '10px' }}>
-                      <Label style={{ backgroundColor: 'blue' }}>Human Trafficking</Label>
-                    </h3>
-                  </Col>
-                </Link>
-              </Col>
-            </Row>
-            <Row style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '10px', padding: '30px', marginBottom: '30px' }}>
-              <Col xs={12}>
-                <Link to={'/'} style={{ color: 'black' }}>
-                  <Col xs={12} sm={3}>
-                    <Image
-                      circle
-                      src="https://s-media-cache-ak0.pinimg.com/236x/a4/89/c8/a489c8a9fa06e2ae1ca1dbb5f58dcd08.jpg"
-                      style={{ height: '200px', display: 'block', margin: '0 auto' }}
-                    />
-                  </Col>
-                  <Col xs={12} sm={9}>
-                    <h2>Company Name</h2>
-                    <p>1260 Republican Street, Seattle, WA 98109</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h3 style={{ display: 'inline', marginRight: '10px' }}>
-                      <Label style={{ backgroundColor: 'blue' }}>Education</Label>
-                    </h3>
-                  </Col>
-                </Link>
-              </Col>
-            </Row>
+            {orgs.map((org, index) => {
+              return <OrgProfileShort key={index} org={org} />;
+            })}
           </Col>
         </Row>
       </Grid>
