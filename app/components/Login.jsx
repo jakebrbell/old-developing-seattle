@@ -1,4 +1,5 @@
 import { Button, Col, ControlLabel, Form, FormControl, FormGroup, Grid, Row, Well } from 'react-bootstrap';
+import { Link } from 'react-router';
 import React from 'react';
 
 class Login extends React.Component {
@@ -6,8 +7,11 @@ class Login extends React.Component {
     return <Grid style={{ marginTop: '100px' }}>
       <Row>
         <Col xs={12} sm={6} smOffset={3} style={{ marginTop: '80px' }}>
-          <Well>
-            <h1 style={{ textAlign: 'center', margin: '10px 0 30px 0' }}>Login</h1>
+          <Well bsSize="large">
+            <h1 style={{ textAlign: 'center', margin: '10px 0 30px' }}>Login</h1>
+            <p style={{ textAlign: 'center', marginBottom: '25px' }}>Not registered yet? {' '}
+              <Link to={'/register'}>Register here.</Link>
+            </p>
             <Form horizontal>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
@@ -35,7 +39,6 @@ class Login extends React.Component {
                 </Col>
               </FormGroup>
             </Form>
-            <p style={{ textAlign: 'center' }}>Not registered yet? Register here.</p>
           </Well>
         </Col>
       </Row>
