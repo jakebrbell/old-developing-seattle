@@ -4,6 +4,7 @@ import Home from 'components/Home';
 import Login from 'components/Login';
 import OrgList from 'components/OrgList';
 import React from 'react';
+import Register from 'components/Register';
 
 class Routes extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Routes extends React.Component {
         <IndexRoute component={Home} />
         <Route component={OrgList} path="/organizations" />
         <Route component={Login} path="/login" />
+        <Route component={Register} path="/register" />
       </Route>
     </Router>;
   }
