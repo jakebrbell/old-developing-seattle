@@ -6,7 +6,7 @@ exports.up = function(knex) {
     table.string('name').notNullable().defaultTo('');
     table.text('desc').notNullable().defaultTo('');
     table.string('email').unique().notNullable();
-    table.string('address').unique().notNullable();
+    table.string('address').notNullable().defaultTo('');
     table.json('causes').notNullable().defaultTo('[]');
     table.string('logo_url').notNullable().defaultTo('');
     table.json('proposals').notNullable().defaultTo('[]');
