@@ -143,7 +143,7 @@ suite('Migrations', () => {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
-            defaultValue: null
+            defaultValue: '\'\'::character varying'
           },
 
           causes: {
