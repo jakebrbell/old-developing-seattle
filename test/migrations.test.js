@@ -139,6 +139,13 @@ suite('Migrations', () => {
             defaultValue: null
           },
 
+          address: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: null
+          },
+
           causes: {
             type: 'json',
             maxLength: null,
