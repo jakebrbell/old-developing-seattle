@@ -8,7 +8,8 @@ class OrgProfileShort extends React.Component {
 
     const styles = {
       label: {
-        backgroundColor: 'blue'
+        backgroundColor: '#8ED4CC',
+        boxShadow: '3px 3px 7px -1px rgba(0,0,0,0.52)'
       },
       labelWrapper: {
         display: 'inline',
@@ -20,7 +21,8 @@ class OrgProfileShort extends React.Component {
       logo: {
         display: 'block',
         height: '200px',
-        margin: '0 auto'
+        margin: '20px auto',
+        background: '#fff'
       },
       row: {
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -33,22 +35,24 @@ class OrgProfileShort extends React.Component {
     return <Row style={styles.row}>
       <Col xs={12}>
         <Link to={'/'} style={styles.link}>
-          <Col xs={12} sm={3}>
+          <Col xs={12} sm={3} style={{ padding: 0 }}>
             <Image
               circle
-              src={org.logo}
+              src={`images/${org.logo_url}`}
               style={styles.logo}
             />
           </Col>
-          <Col xs={12} sm={9}>
+          <Col xs={12} sm={9} style={{ paddingLeft: 50 }}>
             <h2>{org.name}</h2>
             <p>{org.address}</p>
-            <p>{org.description}</p>
-            {org.causes.map((cause, index) => {
-              return <h3 key={index} style={styles.labelWrapper}>
-                <Label style={styles.label}>{cause}</Label>
-              </h3>;
-            })}
+            <div style={{ marginBottom: 15 }}>
+              {org.causes.map((cause, index) => {
+                return <h3 key={index} style={styles.labelWrapper}>
+                  <Label style={styles.label}>{cause}</Label>
+                </h3>;
+              })}
+            </div>
+            <p>{org.desc}</p>
           </Col>
         </Link>
       </Col>
