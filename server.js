@@ -13,7 +13,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-// const users = require('./routes/users');
+const users = require('./routes/users');
 // const orgs = require('./routes/orgs');
 
 app.disable('x-powered-by');
@@ -43,7 +43,7 @@ app.use('/api', (req, res, next) => {
 
 app.use(bodyParser.json());
 
-// app.use('/api', users);
+app.use('/api', users);
 // app.use('/api', orgs);
 
 app.use('/api', (_req, res) => {
@@ -61,7 +61,7 @@ app.use((err, _req, res, _next) => {
       .status(err.status)
       .send(err);
   }
-  
+
   if (err.output && err.output.statusCode) {
     return res
       .status(err.output.statusCode)
