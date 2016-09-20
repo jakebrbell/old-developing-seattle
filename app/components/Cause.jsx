@@ -51,7 +51,7 @@ class Cause extends React.Component {
           <h3 style={styles.name}>
             {cause.name}
           </h3>
-          <p style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+          <p style={styles.description}>{cause.desc}</p>
         </div>
       </div>
     </Col>;
