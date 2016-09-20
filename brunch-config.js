@@ -23,6 +23,10 @@ module.exports = {
     }
   },
 
+  paths: {
+    watched: ['app', 'vendor']
+  },
+
   plugins: {
     babel: {
       presets: ['es2015', 'react']
