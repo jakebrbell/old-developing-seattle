@@ -1,8 +1,14 @@
 import Footer from 'components/Footer';
 import MainNav from 'components/MainNav';
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchOrgs();
+  }
+
   render() {
     return <div>
       <MainNav />
@@ -14,4 +20,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    orgs: state.orgs
+  };
+};
+
+export default connect(mapStateToProps, actions)(App);
