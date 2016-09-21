@@ -1,23 +1,6 @@
 import { Button, Col, Grid, Label, Image, Row, Well } from 'react-bootstrap';
 import Proposal from 'components/Proposal';
-import React from 'react';
-
-// const org = {
-//   name: 'Company Name',
-//   address: '1260 Republican Street, Seattle, WA 98109',
-//   logo: 'https://s-media-cache-ak0.pinimg.com/564x/5a/bd/f4/5abdf4f571593356b4a27339529798d0.jpg',
-//   causes: ['Animal Welfare', 'Environment'],
-//   description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-//   proposals: [{
-//     name: 'We need a new website',
-//     description: 'Our website is outdated and no longer working. We are looking for someone who can build us a new one.',
-//     skills: ['Designer', 'Web Developer']
-//   }, {
-//     name: 'We need a new website',
-//     description: 'Our website is outdated and no longer working. We are looking for someone who can build us a new one.',
-//     skills: ['Designer', 'Web Developer']
-//   }]
-// }
+import React, { PropTypes } from 'react';
 
 const OrgProfileFull = ({ org }) => {
   const styles = {
@@ -71,6 +54,21 @@ const OrgProfileFull = ({ org }) => {
       </Col>
     </Row>
   </Grid>;
+};
+
+OrgProfileFull.propTypes = {
+  org: PropTypes.shape({
+    id: PropTypes.number,
+    address: PropTypes.string,
+    causes: PropTypes.arrayOf(PropTypes.string),
+    createdAt: PropTypes.string,
+    desc: PropTypes.string,
+    email: PropTypes.string,
+    logoUrl: PropTypes.string,
+    name: PropTypes.string,
+    proposals: PropTypes.array,
+    updatedAt: PropTypes.string
+  }).isRequired
 };
 
 export default OrgProfileFull;
