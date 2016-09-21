@@ -4,6 +4,8 @@ const orgs = (state = [], action) => {
   switch (action.type) {
     case 'ADD_ORG':
       return [];
+    case 'RECEIVE_ORGS':
+      return action.response;
     default:
       return state;
   }
