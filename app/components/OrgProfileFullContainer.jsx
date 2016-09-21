@@ -24,7 +24,7 @@ class OrgProfileFullContainer extends Component {
       return <OrgProfileFull org={currentOrg}/>;
     }
 
-    return <div></div>;
+    return <div />;
 
   }
 }
