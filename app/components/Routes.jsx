@@ -3,7 +3,7 @@ import App from 'components/App';
 import Home from 'components/Home';
 import Login from 'components/Login';
 import OrgList from 'components/OrgList';
-import OrgProfileFull from 'components/OrgProfileFull';
+import OrgProfileFullContainer from 'components/OrgProfileFullContainer';
 import React from 'react';
 import Register from 'components/Register';
 
@@ -12,10 +12,10 @@ class Routes extends React.Component {
     return <Router history={browserHistory}>
       <Route component={App} path="/">
         <IndexRoute component={Home} />
-        <Route component={OrgList} path="/organizations" />
-        <Route component={OrgProfileFull} path="/organizations/number" />
-        <Route component={Login} path="/login" />
-        <Route component={Register} path="/register" />
+        <Route component={OrgList} path="organizations" />
+        <Route component={OrgProfileFullContainer} path="organizations/:orgId" />
+        <Route component={Login} path="login" />
+        <Route component={Register} path="register" />
       </Route>
     </Router>;
   }
