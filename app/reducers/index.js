@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form'
 
 const orgs = (state = [], action) => {
   switch (action.type) {
@@ -11,29 +12,15 @@ const orgs = (state = [], action) => {
   }
 };
 
-const user = (state, action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_USER':
-      return {
-        firstName: action.firstName
-      };
+      return action.user;
     default:
       return state;
   }
 };
 
-const users = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD_USER':
-      return [
-        ...state,
-        user(undefined, action)
-      ];
-    default:
-      return state;
-  }
-};
-
-const reducers = combineReducers({ orgs, users });
+const reducers = combineReducers({ orgs, user, form });
 
 export default reducers;

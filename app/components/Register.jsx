@@ -1,10 +1,66 @@
-import { Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, Grid, Row, Well } from 'react-bootstrap';
+import { Button, Col, ControlLabel, Form, FormControl, FormGroup, Grid, Row, Well } from 'react-bootstrap';
 import React, { PropTypes } from 'react';
-import { addUser } from '../actions';
+import { createNewUser } from '../actions';
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import Checkbox from 'components/Checkbox';
 
-const Register = ({ dispatch }) => {
-  let input;
+const causesFirstColumn = [
+  { name: 'animalWelfare', value: 'Animal Welfare'},
+  { name: 'education', value: 'Education' },
+  { name: 'environment', value: 'Environment'},
+  { name: 'genderEquality', value: 'Gender Equality'}
+];
+
+const causesSecondColumn = [
+  { name: 'homelessness', value: 'Homelessness' },
+  { name: 'humanTrafficking', value: 'Human Trafficking' },
+  { name: 'lgbtqIssues', value: 'LGBTQ Issues' },
+  { name: 'refugees', value: 'Refugees' }
+];
+
+const skillsFirstColumn = [
+  { name: 'skill1', value: 'Skill 1' },
+  { name: 'skill2', value: 'Skill 2' },
+  { name: 'skill3', value: 'Skill 3' },
+  { name: 'skill4', value: 'Skill 4' }
+];
+
+const skillsSecondColumn = [
+  { name: 'skill5', value: 'Skill 5' },
+  { name: 'skill6', value: 'Skill 6' }, 
+  { name: 'skill7', value: 'Skill 7' },
+  { name: 'skill8', value: 'Skill 8' }
+];
+
+const Register = ({ handleSubmit, dispatch }) => {
+  const handleRegisterFormSubmit = (formFields) => {
+    dispatch(createNewUser(formFields));
+  }
+
+  const styles = {
+    checkbox: {
+      margin: '4px 5px 0 0'
+    },
+    checkboxLabel: {
+      minHeight: '20px',
+      marginBottom: '0',
+      fontWeight: '400',
+      cursor: 'pointer',
+      display: 'inline-block',
+      maxWidth: '100%',
+      paddingTop: '7px'
+    },
+    field: {
+      width: '100%',
+      borderRadius: '4px',
+      padding: '6px 12px',
+      border: '1px solid #CCC',
+      display: 'block',
+      fontSize: '14px',
+      color: '#555'
+    }
+  };
 
   return <Grid style={{ marginTop: '100px' }}>
     <Row>
@@ -13,30 +69,35 @@ const Register = ({ dispatch }) => {
           <h1 style={{ textAlign: 'center', margin: '10px 0 30px' }}>Register</h1>
           <Form
             horizontal
-            onSubmit={e => {
-              e.preventDefault();
-              console.log(e.currentTarget);
-            }}
+            onSubmit={handleSubmit(handleRegisterFormSubmit)}
           >
             <FormGroup controlId="firstName">
               <Col componentClass={ControlLabel} sm={3}>
                 First Name
               </Col>
               <Col sm={9}>
-                <FormControl
-                  type="text"
+                <Field
+                  component="input"
+                  name="firstName"
                   placeholder="First Name"
-                  ref={node => { input = node; }}
+                  style={styles.field}
+                  type="text"
                 />
               </Col>
             </FormGroup>
 
-            {/* <FormGroup controlId="lastName">
+            <FormGroup controlId="lastName">
               <Col componentClass={ControlLabel} sm={3}>
                 Last Name
               </Col>
               <Col sm={9}>
-                <FormControl type="text" placeholder="Last Name" />
+                <Field
+                  component="input"
+                  name="lastName"
+                  placeholder="Last Name"
+                  style={styles.field}
+                  type="text"
+                />
               </Col>
             </FormGroup>
 
@@ -45,7 +106,13 @@ const Register = ({ dispatch }) => {
                 Email
               </Col>
               <Col sm={9}>
-                <FormControl type="email" placeholder="Email" />
+                <Field
+                  component="input"
+                  name="email"
+                  placeholder="Email"
+                  style={styles.field}
+                  type="email"
+                />
               </Col>
             </FormGroup>
 
@@ -54,7 +121,13 @@ const Register = ({ dispatch }) => {
                 Password
               </Col>
               <Col sm={9}>
-                <FormControl type="password" placeholder="Password" />
+                <Field
+                  component="input"
+                  name="password"
+                  placeholder="Password"
+                  style={styles.field}
+                  type="password"
+                />
               </Col>
             </FormGroup>
 
@@ -63,7 +136,13 @@ const Register = ({ dispatch }) => {
                 Title
               </Col>
               <Col sm={9}>
-                <FormControl type="text" placeholder="Title" />
+                <Field
+                  component="input"
+                  name="title"
+                  placeholder="Title"
+                  style={styles.field}
+                  type="text"
+                />
               </Col>
             </FormGroup>
 
@@ -72,32 +151,14 @@ const Register = ({ dispatch }) => {
                 Causes
               </Col>
               <Col sm={4}>
-                <Checkbox>
-                  Animal Welfare
-                </Checkbox>
-                <Checkbox>
-                  Education
-                </Checkbox>
-                <Checkbox>
-                  Environment
-                </Checkbox>
-                <Checkbox>
-                  Gender Equality
-                </Checkbox>
+                {causesFirstColumn.map((cause, i) => {
+                  return <Checkbox key={i} styles={styles} contents={cause} />
+                })}
               </Col>
               <Col sm={5}>
-                <Checkbox>
-                  Homelessness
-                </Checkbox>
-                <Checkbox>
-                  Human Trafficking
-                </Checkbox>
-                <Checkbox>
-                  LGBTQ Issues
-                </Checkbox>
-                <Checkbox>
-                  Refugees
-                </Checkbox>
+                {causesSecondColumn.map((cause, i) => {
+                  return <Checkbox key={i} styles={styles} contents={cause} />
+                })}
               </Col>
             </FormGroup>
 
@@ -106,38 +167,20 @@ const Register = ({ dispatch }) => {
                 Skills
               </Col>
               <Col sm={4}>
-                <Checkbox>
-                  Skill 1
-                </Checkbox>
-                <Checkbox>
-                  Skill 2
-                </Checkbox>
-                <Checkbox>
-                  Skill 3
-                </Checkbox>
-                <Checkbox>
-                  Skill 4
-                </Checkbox>
+                {skillsFirstColumn.map((skill, i) => {
+                  return <Checkbox key={i} styles={styles} contents={skill} />
+                })}
               </Col>
               <Col sm={5}>
-                <Checkbox>
-                  Skill 5
-                </Checkbox>
-                <Checkbox>
-                  Skill 6
-                </Checkbox>
-                <Checkbox>
-                  Skill 7
-                </Checkbox>
-                <Checkbox>
-                  Skill 8
-                </Checkbox>
+                {skillsSecondColumn.map((skill, i) => {
+                  return <Checkbox key={i} styles={styles} contents={skill} />
+                })}
               </Col>
-            </FormGroup> */}
+            </FormGroup>
 
             <FormGroup>
               <Col smOffset={3} sm={9}>
-                <Button type="submit">
+                <Button type="submit" bsStyle="primary" style={{ width: '50%' }}>
                   Register
                 </Button>
               </Col>
@@ -150,7 +193,7 @@ const Register = ({ dispatch }) => {
 };
 
 Register.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 };
 
-export default connect()(Register);
+export default reduxForm({ form: 'register' })(Register);
