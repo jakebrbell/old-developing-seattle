@@ -16,6 +16,7 @@ const app = express();
 const users = require('./routes/users');
 const orgs = require('./routes/orgs');
 const token = require('./routes/token');
+const messages = require('./routes/messages');
 
 app.disable('x-powered-by');
 
@@ -47,6 +48,7 @@ app.use(bodyParser.json());
 app.use('/api', users);
 app.use('/api', orgs);
 app.use('/api', token);
+app.use('/api', messages);
 
 app.use('/api', (_req, res) => {
   res.sendStatus(404);
