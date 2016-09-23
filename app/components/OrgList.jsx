@@ -2,9 +2,13 @@ import { Col, ControlLabel, FormControl, FormGroup, Grid, Image, Label, Row }
   from 'react-bootstrap';
 import { Link } from 'react-router';
 import OrgProfileShortContainer from 'components/OrgProfileShortContainer';
-import React from 'react';
+import React, { Component } from 'react';
 
-class OrgList extends React.Component {
+class OrgList extends Component {
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return <main>
       <Grid style={{ marginTop: '100px' }}>
@@ -30,7 +34,14 @@ class OrgList extends React.Component {
                 <ControlLabel>Skills</ControlLabel>
                 <FormControl componentClass="select" placeholder="select">
                   <option value="select">Select</option>
-                  <option value="web-developer">Web Developer</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="postgresql">PostgreSQL</option>
+                  <option value="nodejs">Node.js</option>
+                  <option value="express">Express.js</option>
+                  <option value="angular">Angular.js</option>
+                  <option value="react">React</option>
                 </FormControl>
               </FormGroup>
             </aside>
