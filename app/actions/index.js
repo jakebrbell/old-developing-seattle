@@ -1,5 +1,21 @@
 import axios from 'axios';
 
+export const toggleMessage = (messageInfo) => ({
+  type: 'TOGGLE_MESSAGE',
+  messageInfo
+});
+
+export const loginUser = (formFields) => (dispatch) => {
+  axios.post('/api/token', formFields)
+    .then((res) => {
+      console.log('Logged in successfully!');
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 export const createNewUser = (formFields) => (dispatch) => {
   const {
     firstName,
