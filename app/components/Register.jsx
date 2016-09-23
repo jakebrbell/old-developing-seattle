@@ -4,6 +4,7 @@ import { createNewUser } from '../actions';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import Checkbox from 'components/Checkbox';
+import { withRouter } from 'react-router';
 
 const causesFirstColumn = [
   { name: 'animalWelfare', value: 'Animal Welfare'},
@@ -20,23 +21,24 @@ const causesSecondColumn = [
 ];
 
 const skillsFirstColumn = [
-  { name: 'skill1', value: 'Skill 1' },
-  { name: 'skill2', value: 'Skill 2' },
-  { name: 'skill3', value: 'Skill 3' },
-  { name: 'skill4', value: 'Skill 4' }
+  { name: 'html', value: 'HTML' },
+  { name: 'css', value: 'CSS' },
+  { name: 'javascript', value: 'JavaScript' },
+  { name: 'postgresql', value: 'PostgreSQL' }
 ];
 
 const skillsSecondColumn = [
-  { name: 'skill5', value: 'Skill 5' },
-  { name: 'skill6', value: 'Skill 6' }, 
-  { name: 'skill7', value: 'Skill 7' },
-  { name: 'skill8', value: 'Skill 8' }
+  { name: 'nodejs', value: 'Node.js' },
+  { name: 'express', value: 'Express.js' },
+  { name: 'angular', value: 'Angular.js' },
+  { name: 'react', value: 'React' }
 ];
 
-const Register = ({ handleSubmit, dispatch }) => {
+const Register = ({ handleSubmit, dispatch, router }) => {
   const handleRegisterFormSubmit = (formFields) => {
     dispatch(createNewUser(formFields));
-  }
+    router.push('/login');
+  };
 
   const styles = {
     checkbox: {
@@ -180,7 +182,7 @@ const Register = ({ handleSubmit, dispatch }) => {
 
             <FormGroup>
               <Col smOffset={3} sm={9}>
-                <Button type="submit" bsStyle="primary" style={{ width: '50%' }}>
+                <Button type="submit" bsStyle="primary" style={{ width: '50%', float: 'right', marginTop: '30px' }}>
                   Register
                 </Button>
               </Col>
@@ -196,4 +198,4 @@ Register.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 };
 
-export default reduxForm({ form: 'register' })(Register);
+export default withRouter(reduxForm({ form: 'register' })(Register));
