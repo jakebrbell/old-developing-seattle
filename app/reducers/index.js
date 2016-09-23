@@ -21,6 +21,15 @@ const user = (state = {}, action) => {
   }
 };
 
-const reducers = combineReducers({ orgs, user, form });
+const message = (state = {}, action) => {
+  switch (action.type) {
+    case 'TOGGLE_MESSAGE':
+      return action.messageInfo;
+    default:
+      return state;
+  }
+};
+
+const reducers = combineReducers({ orgs, user, form, message });
 
 export default reducers;
