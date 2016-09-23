@@ -49,7 +49,14 @@ const OrgProfileFull = ({ org }) => {
       </Col>
       <Col xs={12}>
         {org.proposals.map((proposal, index) => {
-          return <Proposal key={index} proposal={proposal} />
+          return <Proposal
+            key={index}
+            proposal={proposal}
+            orgId={org.id}
+            orgName={org.name}
+            orgEmail={org.email}
+            proposalId={index}
+          />
         })}
       </Col>
     </Row>
