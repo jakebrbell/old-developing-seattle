@@ -42,6 +42,14 @@ router.post('/token', (req, res, next) => {
         expires: expiry,
         secure: router.get('env') === 'production'
       });
+      res.cookie('user', {
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName
+      }, {
+        expires: expiry,
+        secure: router.get('env') === 'production'
+      });
 
       res.sendStatus(200);
     })
