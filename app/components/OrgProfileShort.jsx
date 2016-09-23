@@ -38,7 +38,7 @@ const OrgProfileShort = ({ org }) => {
             src={`/images/${org.logoUrl}`}
             style={styles.logo}
           />
-          <Button block>View Full Profile</Button>
+          <Button block bsStyle="primary">View Full Profile</Button>
         </Col>
         <Col xs={12} sm={9} style={{ paddingLeft: 50 }}>
           <h2>{org.name}</h2>
