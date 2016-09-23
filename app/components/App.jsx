@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render() {
     return <div>
-      <MainNav />
+      <MainNav user={this.props.user} />
       <main style={{ minHeight: 'calc(100vh - 170px)' }}>
         {React.cloneElement(this.props.children)}
       </main>
@@ -22,7 +22,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    orgs: state.orgs
+    orgs: state.orgs,
+    user: state.user
   };
 };
 
