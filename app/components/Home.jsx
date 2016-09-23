@@ -2,6 +2,7 @@ import { Button, Col, Grid, Row } from 'react-bootstrap';
 import Cause from 'components/Cause';
 import React from 'react';
 import Testimonial from 'components/Testimonial';
+import { withRouter } from 'react-router';
 
 const causes = [
   { name: 'Animal Welfare', image: 'animal-welfare.jpg', desc: 'Use your power to give a voice to the voiceless. Raising awareness of animal cruelty, whether by owners of mistreated animals, or by corporate entities in the agricultural, medical, and entertainment industries, can help ensure the rights of animals are respected.' },
@@ -21,10 +22,18 @@ const testimonials = [
 ];
 
 class Home extends React.Component {
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
+  handleOnClick() {
+    this.props.router.push('/organizations');
+  }
+
   render() {
     const styles = {
       buttonRow: {
-        margin: '40px 0'
+        margin: '40px 0 20px 0'
       },
       hero: {
         background: 'url("images/seattle-skyline.jpg") center center / cover no-repeat',
@@ -53,9 +62,14 @@ class Home extends React.Component {
         </h2>
         <Row style={styles.buttonRow}>
           <Col xs={12} sm={6} smOffset={3}>
-            <Button block bsSize="large" bsStyle="primary">
+            <Button block bsSize="large" bsStyle="primary" onClick={this.handleOnClick.bind(this)} style={{ height: '80px', fontSize: '25px' }}>
               Browse all volunteer opportunities
             </Button>
+          </Col>
+        </Row>
+        <Row style={{ marginBottom: '30px' }}>
+          <Col xs={12}>
+            <h3 style={{ textAlign: 'center', fontSize: '30px' }}>Or search by the causes you are most passionate about</h3>
           </Col>
         </Row>
         <Row>
@@ -63,7 +77,8 @@ class Home extends React.Component {
             return <Cause cause={cause} key={index} />;
           })}
         </Row>
-        <Row>
+        <Row style={{ margin: '40px 0' }}>
+          <h2 style={{ textAlign: 'center', fontSize: '40px' }}>Here's what other developers are saying:</h2>
           {testimonials.map((testimonial, index) => {
             return <Testimonial key={index} testimonial={testimonial}/>
           })}
@@ -73,4 +88,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
